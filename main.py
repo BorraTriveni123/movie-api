@@ -5,6 +5,15 @@ app = Flask(__name__)
 movies = []
 movie_id = 1
 
+@app.route("/")
+def home():
+    return "Welcome to the Movie API! Use /movies to GET, POST, PUT, DELETE movies."
+
+
+@app.route("/favicon.ico")
+def favicon():
+    return "", 204
+
 @app.route("/movies", methods=["GET"])
 def get_movies():
     return jsonify(movies)
